@@ -33,7 +33,7 @@ Para usar a função visualizar do Terraform, será necessário instalar o Graph
 1. Inicie o Visual Studio Code.
 1. Selecione Extensões.
 
-![alt text](https://user-images.githubusercontent.com/53921314/63644256-40365f80-c6bb-11e9-8ed5-060841bd219c.png)
+![alt text](https://user-images.githubusercontent.com/53921314/63644567-5693e980-c6c2-11e9-8f59-251ea9f27505.png)
 1. Use a caixa de texto Pesquisar extensões no Marketplace para procurar a extensão do Terraform do Azure:
 
 ![alt text](https://user-images.githubusercontent.com/53921314/63644552-ee450800-c6c1-11e9-8054-91f2f3a0739c.png)
@@ -46,11 +46,14 @@ Depois de instalado agora é possível executar todos os comandos com suporte do
 
 ### Preparar o arquivo
 
-No Visual Studio Code, selecione Arquivo > Novo Arquivo na barra de menus ou CTRL+N
+1. No Visual Studio Code, selecione Arquivo > Novo Arquivo na barra de menus ou CTRL+N
 ![alt text](https://user-images.githubusercontent.com/53921314/63644537-91e1e880-c6c1-11e9-8085-def9fc32b0e5.png)
 
-O arquivo esta todo comentado para facil entendimento
-https://github.com/robertoleao/Projeto_Azure/blob/master/Script%20completo%20do%20Terraform
+1. Copie o código no bloco de código criado no Visual Studio Code.
+> O arquivo esta todo comentado para facil entendimento https://github.com/robertoleao/Projeto_Azure/blob/master/Script%20completo%20do%20Terraform
+
+1. Na barra de menus, selecione Arquivo > Salvar Como.
+
 
 
 
