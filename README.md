@@ -1,4 +1,4 @@
-# Projeto_Azure
+# Projeto_Azure_Terraform
 Como subir maquinas pelo Azure usando terraform
 
 
@@ -25,3 +25,12 @@ Siga as instruções na página da Web Instalar o Terraform da HashiCorp, que ab
 ### Baixando o Terraform
 Instalando o Terraform
 Verificar se o Terraform é instalado corretamente
+### Instalar o Node. js
+Para usar o Terraform no Cloud Shell, você precisará instalar o Node.js.
+### Instalar GraphViz
+Para usar a função visualizar do Terraform, será necessário instalar o GraphViz.
+### Instalar a extensão do Visual Studio Code do Azure Terraform
+1. Inicie o Visual Studio Code.
+1. Selecione Extensões.
+
+![alt text](https://uploaddeimagens.com.br/imagens/1-png-3506a021-1e6d-49ea-8f29-82b40763009b)
