@@ -1,13 +1,18 @@
 # Projeto_Azure_Terraform
 Como subir maquinas pelo Azure usando terraform
 
+Pré-requisitos
 
+* Assinatura do Azure: Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar.
+* Instalar o Azure CLI no Windows
 
-Instalar o Azure CLI no Windows
+### Instalação
 
 CLI do Azure fornece acesso à CLI por meio do prompt de comando do Windows (CMD), PowerShell ou Bash.
 
-Agora você pode executar a CLI do Azure com o az comando do Prompt de Comando do Windows, PowerShell ou Bash. O PowerShell oferece alguns recursos de conclusão de guias não disponíveis no Prompt de Comando do Windows. Para entrar , execute o comando az login
+https://docs.microsoft.com/pt-br/cli/azure/install-azure-cli?view=azure-cli-latest
+
+Depois de instalado você pode executar a CLI do Azure com o az comando do Prompt de Comando do Windows, PowerShell ou Bash. O PowerShell oferece alguns recursos de conclusão de guias não disponíveis no Prompt de Comando do Windows. Para entrar , execute o comando az login
 
 1. Execute o login comando.
 
@@ -20,12 +25,16 @@ Caso contrário, você precisa abrir uma página do navegador e seguir as instru
 
 2. Entre com suas credenciais de conta no navegador.
 
-
-
-
-
-
 Feito isso voce ja tem acesso ao seu azure pelo terminal tanto do windows quando linux agora vamos instalar o Visual Studio Code e a extensão da conta do Azure fica seu criterio usar ou nao o Visual Studio Code ,mais eu recomento pois essa ferramenta nao e so para o Azure ela tem extenção para outros programas.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+### Instalar o Visual Studio Code
+
+https://code.visualstudio.com/download
+
+
+### Instalar e configurar o Terraform para provisionar VMs e outra infraestrutura no Azure
 
 A extensão do Terraform para Microsoft Azure Visual Studio Code foi projetada para aumentar a produtividade do desenvolvedor ao criar, testar e usar o Terraform com o Azure. A extensão fornece o suporte de comando do Terraform, visualização gráfica de recurso e integração do CloudShell com o Visual Studio Code.
 
@@ -36,20 +45,11 @@ Você aprenderá a:
 * Verificar se o Visual Studio Code para gravar, planejar e executar planos de Terraform.
 * Criar uma infraestrutura completa de máquina virtual do Linux no Azure usando o Terraform.
 
+
 Pré-requisitos
-1. Assinatura do Azure: Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar.
-1. Terraform: instale e configure o Terraform.
-1. Visual Studio Code: instale a versão do Visual Studio Code apropriado para seu ambiente.
 
-Preparar o ambiente de desenvolvimento
-
-### Instalar o Git
-Para concluir os exercícios neste artigo, você precisará instalar o Git.
 ### Instalar o HashiCorp Terraform
-Siga as instruções na página da Web Instalar o Terraform da HashiCorp, que abrange:
-### Baixando o Terraform
-Instalando o Terraform
-Verificar se o Terraform é instalado corretamente
+Siga as instruções na página da Web Instalar o Terraform, que abrange:
 ### Instalar o Node. js
 Para usar o Terraform no Cloud Shell, você precisará instalar o Node.js.
 ### Instalar GraphViz
@@ -57,17 +57,15 @@ Para usar a função visualizar do Terraform, será necessário instalar o Graph
 ### Instalar a extensão do Visual Studio Code do Azure Terraform
 1. Inicie o Visual Studio Code.
 1. Selecione Extensões.
-
 ![alt text](https://user-images.githubusercontent.com/53921314/63644567-5693e980-c6c2-11e9-8f59-251ea9f27505.png)
-1. Use a caixa de texto Pesquisar extensões no Marketplace para procurar a extensão do Terraform do Azure:
 
+1. Use a caixa de texto Pesquisar extensões no Marketplace para procurar a extensão do Terraform do Azure:
 ![alt text](https://user-images.githubusercontent.com/53921314/63644552-ee450800-c6c1-11e9-8054-91f2f3a0739c.png)
 
 Selecione Instalar.
 > Quando você seleciona Instalar para a extensão do Terraform do Azure, o Visual Studio Code automaticamente instala a extensão de Conta do Azure. Conta do Azure é um arquivo de dependência para a extensão Terraform do Azure, usado para executar autenticações de assinatura do Azure e extensões de código relacionadas ao Azure.
 
 Depois de instalado agora é possível executar todos os comandos com suporte do Terraform em seu ambiente do Cloud Shell de dentro do Visual Studio Code.
-
 
 ### Preparar o arquivo
 
