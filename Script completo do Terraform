@@ -1,24 +1,26 @@
-# Configure the Microsoft Azure Provider
+# Configurar o provedor do Microsoft Azure
 provider "azurerm" {
-    subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    subscription_id = "4f248c20-f5b6-43fa-9757-4e52efc07a22"
+    client_id       = "4f248c20-f5b6-43fa-9757-4e52efc07a22"
     client_secret   = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    tenant_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    tenant_id       = "b28ec4a5-e445-404b-a584-e83c09b87dbc"
 }
 
-# Create a resource group if it doesn’t exist
+# Crie um grupo de recursos, se ele não existir
+#A seção a seguir cria um grupo de recursos denominado myResourceGroup no local eastus :
 resource "azurerm_resource_group" "myterraformgroup" {
     name     = "myResourceGroup"
-    location = "eastus"
+    location = "brazilsouth"
 
     tags = {
         environment = "Terraform Demo"
     }
 }
 
-# Create virtual network
+# Criar rede virtual
+# A seção a seguir em cria uma rede virtual chamada myVnet no espaço de endereço 10.0.0.0/16:
 resource "azurerm_virtual_network" "myterraformnetwork" {
-    name                = "myVnet"
+    name                = "meuVnet"
     address_space       = ["10.0.0.0/16"]
     location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
@@ -28,15 +30,18 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     }
 }
 
-# Create subnet
+# Criar sub-rede
+# A seção a seguir cria uma sub-rede denominada mySubnet na rede virtual myVnet:
 resource "azurerm_subnet" "myterraformsubnet" {
-    name                 = "mySubnet"
+    name                 = "meuSubnet"
     resource_group_name  = "${azurerm_resource_group.myterraformgroup.name}"
     virtual_network_name = "${azurerm_virtual_network.myterraformnetwork.name}"
     address_prefix       = "10.0.1.0/24"
 }
 
-# Create public IPs
+# Crie IPs públicos
+# Para acessar os recursos na Internet, crie e atribua um endereço IP público para a sua VM. A seção a seguir cria um endereço IP público denominado myPublicIP:
+
 resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
     location                     = "eastus"
@@ -48,7 +53,8 @@ resource "azurerm_public_ip" "myterraformpublicip" {
     }
 }
 
-# Create Network Security Group and rule
+# Criar grupo e regra de segurança de rede
+#Os grupos de segurança de rede controlam o fluxo de entrada e saída de tráfego de rede de sua VM. A seção a seguir cria um grupo de segurança de rede denominado myNetworkSecurityGroup e define uma regra para permitir o tráfego de SSH na porta TCP 22:
 resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "eastus"
@@ -71,7 +77,8 @@ resource "azurerm_network_security_group" "myterraformnsg" {
     }
 }
 
-# Create network interface
+# Criar interface de rede
+# Uma placa de adaptador de rede virtual (NIC) conecta-se à VM para uma determinada rede virtual, um endereço IP público e um grupo de segurança de rede. A seção a seguir em um modelo do Terraform cria uma NIC virtual denominada myNIC conectada aos recursos da rede virtual que você criou:
 resource "azurerm_network_interface" "myterraformnic" {
     name                      = "myNIC"
     location                  = "eastus"
@@ -90,7 +97,7 @@ resource "azurerm_network_interface" "myterraformnic" {
     }
 }
 
-# Generate random text for a unique storage account name
+# Gerar texto aleatório para um nome de conta de armazenamento exclusivo
 resource "random_id" "randomId" {
     keepers = {
         # Generate a new ID only when a new resource group is defined
@@ -100,7 +107,9 @@ resource "random_id" "randomId" {
     byte_length = 8
 }
 
-# Create storage account for boot diagnostics
+# Criar conta de armazenamento para diagnósticos de inicialização
+# Para armazenar o diagnóstico de inicialização para uma máquina virtual, você precisará de uma conta de armazenamento. Estes diagnósticos de inicialização podem ajudá-lo a solucionar problemas e monitorar o status da VM. A conta de armazenamento que você cria serve apenas para armazenar os dados de diagnóstico de inicialização. Como cada conta de armazenamento deve ter um nome exclusivo, a seção a seguir gera textos aleatórios:
+# Agora você pode criar uma conta de armazenamento. A seção a seguir cria uma conta de armazenamento com o nome com base no texto aleatório gerado na etapa anterior:
 resource "azurerm_storage_account" "mystorageaccount" {
     name                        = "diag${random_id.randomId.hex}"
     resource_group_name         = "${azurerm_resource_group.myterraformgroup.name}"
@@ -113,7 +122,9 @@ resource "azurerm_storage_account" "mystorageaccount" {
     }
 }
 
-# Create virtual machine
+# Criar máquina virtual
+# A etapa final é criar uma máquina virtual e usar todos os recursos criados. A seção a seguir cria uma VM denominada myVM e anexa a NIC virtual denominada myNIC. A imagem mais recente do Ubuntu 16.04-LTS é usada e um usuário chamado azureuser é criado com a autenticação de senha desabilitada.
+# Os dados de chave SSH são fornecidos na seção ssh_keys. Forneça uma chave SSH pública válida no campo key_data.
 resource "azurerm_virtual_machine" "myterraformvm" {
     name                  = "myVM"
     location              = "eastus"
