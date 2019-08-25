@@ -33,4 +33,24 @@ Para usar a função visualizar do Terraform, será necessário instalar o Graph
 1. Inicie o Visual Studio Code.
 1. Selecione Extensões.
 
-![alt text](https://uploaddeimagens.com.br/imagens/1-png-3506a021-1e6d-49ea-8f29-82b40763009b)
+![alt text](https://user-images.githubusercontent.com/53921314/63644256-40365f80-c6bb-11e9-8ed5-060841bd219c.png)
+1. Use a caixa de texto Pesquisar extensões no Marketplace para procurar a extensão do Terraform do Azure:
+
+![alt text](https://user-images.githubusercontent.com/53921314/63644275-c8b50000-c6bb-11e9-8a60-5881bbe140d7.png)
+
+Selecione Instalar.
+> Quando você seleciona Instalar para a extensão do Terraform do Azure, o Visual Studio Code automaticamente instala a extensão de Conta do Azure. Conta do Azure é um arquivo de dependência para a extensão Terraform do Azure, usado para executar autenticações de assinatura do Azure e extensões de código relacionadas ao Azure.
+
+Depois de instalado agora é possível executar todos os comandos com suporte do Terraform em seu ambiente do Cloud Shell de dentro do Visual Studio Code.
+
+
+
+
+
+
+
+
+
+
+
+
