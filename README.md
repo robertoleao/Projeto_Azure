@@ -53,6 +53,9 @@ Depois de instalado agora é possível executar todos os comandos com suporte do
 > O arquivo esta todo comentado para facil entendimento https://github.com/robertoleao/Projeto_Azure/blob/master/Script%20completo%20do%20Terraform
 
 1. Na barra de menus, selecione Arquivo > Salvar Como.
+Na caixa de diálogo Salvar como, navegue até um local de sua escolha e, em seguida, selecione o local para salva.
+
+Na caixa de diálogo Salvar Como, altere o nome padrão do arquivo para **main.tf**
 
 
 
