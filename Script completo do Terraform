@@ -1,9 +1,9 @@
 # Configurar o provedor do Microsoft Azure
 provider "azurerm" {
-    subscription_id = "4f248c20-f5b6-43fa-9757-4e52efc07a22"
-    client_id       = "4f248c20-f5b6-43fa-9757-4e52efc07a22"
+    subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_secret   = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    tenant_id       = "b28ec4a5-e445-404b-a584-e83c09b87dbc"
+    tenant_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 
 # Crie um grupo de recursos, se ele não existir
@@ -22,7 +22,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 resource "azurerm_virtual_network" "myterraformnetwork" {
     name                = "meuVnet"
     address_space       = ["10.0.0.0/16"]
-    location            = "eastus"
+    location            = "brazilsouth"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
 
     tags = {
@@ -44,7 +44,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 
 resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
-    location                     = "eastus"
+    location                     = "brazilsouth"
     resource_group_name          = "${azurerm_resource_group.myterraformgroup.name}"
     allocation_method            = "Dynamic"
 
@@ -57,7 +57,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 #Os grupos de segurança de rede controlam o fluxo de entrada e saída de tráfego de rede de sua VM. A seção a seguir cria um grupo de segurança de rede denominado myNetworkSecurityGroup e define uma regra para permitir o tráfego de SSH na porta TCP 22:
 resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
-    location            = "eastus"
+    location            = "brazilsouth"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
     
     security_rule {
@@ -81,7 +81,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 # Uma placa de adaptador de rede virtual (NIC) conecta-se à VM para uma determinada rede virtual, um endereço IP público e um grupo de segurança de rede. A seção a seguir em um modelo do Terraform cria uma NIC virtual denominada myNIC conectada aos recursos da rede virtual que você criou:
 resource "azurerm_network_interface" "myterraformnic" {
     name                      = "myNIC"
-    location                  = "eastus"
+    location                  = "brazilsouth"
     resource_group_name       = "${azurerm_resource_group.myterraformgroup.name}"
     network_security_group_id = "${azurerm_network_security_group.myterraformnsg.id}"
 
@@ -113,7 +113,7 @@ resource "random_id" "randomId" {
 resource "azurerm_storage_account" "mystorageaccount" {
     name                        = "diag${random_id.randomId.hex}"
     resource_group_name         = "${azurerm_resource_group.myterraformgroup.name}"
-    location                    = "eastus"
+    location                    = "brazilsouth"
     account_tier                = "Standard"
     account_replication_type    = "LRS"
 
@@ -127,7 +127,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 # Os dados de chave SSH são fornecidos na seção ssh_keys. Forneça uma chave SSH pública válida no campo key_data.
 resource "azurerm_virtual_machine" "myterraformvm" {
     name                  = "myVM"
-    location              = "eastus"
+    location              = "brazilsouth"
     resource_group_name   = "${azurerm_resource_group.myterraformgroup.name}"
     network_interface_ids = ["${azurerm_network_interface.myterraformnic.id}"]
     vm_size               = "Standard_DS1_v2"
