@@ -1,12 +1,30 @@
 # Projeto_Azure_Terraform
-Como subir maquinas pelo Azure usando terraform
+##### Como subir maquinas pelo Azure usando terraform
+Os arquivos de configuração com base em modelo do Terraform permitem definir, provisionar e configurar recursos do Azure de forma repetível e previsível. Automatizar a infraestrutura traz várias vantagens:
+
+* Reduz a possibilidade de erros humanos durante a implantação e gerenciamento da infraestrutura.
+* Implanta o mesmo modelo várias vezes para criar ambientes de desenvolvimento, teste e produção idênticos.
+* Reduz o custo de ambientes de desenvolvimento e teste ao criá-los sob demanda.
+
+## Instalação
 
 Pré-requisitos
 
 * Assinatura do Azure: Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar.
 * Instalar o Azure CLI no Windows
+* Instalar o Visual Studio Code
+* Instalar o HashiCorp Terraform
+* Instalar a extensão do Visual Studio Code do Azure Terraform
 
-### Instalação
+Siga as instruções na página da Web Instalar o Terraform, que abrange:
+* Instalar o Node. js
+Para usar o Terraform no Cloud Shell, você precisará instalar o Node.js.
+> Node.js é um interpretador, com código aberto, de código JavaScript de modo assíncrono e orientado a eventos, focado em migrar a programação do Javascript do lado do cliente para os servidores, criando assim aplicações de alta escalabilidade (como um servidor web[1]), capazes de manipular milhares de conexões/requisições simultâneas em tempo real, numa única máquina física.[2] O Node.js é baseado no interpretador V8 JavaScript Engine (interpretador de JavaScript open source implementado pelo Google em C++ e utilizado pelo Chrome). Foi criado por Ryan Dahl em 2009, e seu desenvolvimento é mantido pela fundação Node.js em parceria com a Linux Foundation.""
+* Instalar GraphViz
+Para usar a função visualizar do Terraform, será necessário instalar o GraphViz.
+> O Graphviz é um pacote de ferramentas de código aberto iniciado pela AT & T Labs Research para desenhar gráficos especificados em scripts de linguagem DOT. Ele também fornece bibliotecas para aplicativos de software para usar as ferramentas. O Graphviz é um software livre licenciado sob a Licença Pública Eclipse.
+
+1- Instalar o Azure CLI no Windows
 
 CLI do Azure fornece acesso à CLI por meio do prompt de comando do Windows (CMD), PowerShell ou Bash.
 
@@ -14,7 +32,7 @@ https://docs.microsoft.com/pt-br/cli/azure/install-azure-cli?view=azure-cli-late
 
 Depois de instalado você pode executar a CLI do Azure com o az comando do Prompt de Comando do Windows, PowerShell ou Bash. O PowerShell oferece alguns recursos de conclusão de guias não disponíveis no Prompt de Comando do Windows. Para entrar , execute o comando az login
 
-1. Execute o login comando.
+* Execute o login comando.
 
 ```sh
 az login
@@ -23,18 +41,18 @@ Se a CLI puder abrir seu navegador padrão, ele fará isso e carregará uma pág
 
 Caso contrário, você precisa abrir uma página do navegador e seguir as instruções na linha de comando para inserir um código de autorização depois de navegar para https://aka.ms/devicelogin em seu navegador.
 
-2. Entre com suas credenciais de conta no navegador.
+* Entre com suas credenciais de conta no navegador.
 
 Feito isso voce ja tem acesso ao seu azure pelo terminal tanto do windows quando linux agora vamos instalar o Visual Studio Code e a extensão da conta do Azure fica seu criterio usar ou nao o Visual Studio Code ,mais eu recomento pois essa ferramenta nao e so para o Azure ela tem extenção para outros programas.
 
-----------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
 
-### Instalar o Visual Studio Code
+2- Instalar o Visual Studio Code
 
 https://code.visualstudio.com/download
 
 
-### Instalar e configurar o Terraform para provisionar VMs e outra infraestrutura no Azure
+3- Instalar e configurar o Terraform para provisionar VMs em infraestrutura do Azure
 
 A extensão do Terraform para Microsoft Azure Visual Studio Code foi projetada para aumentar a produtividade do desenvolvedor ao criar, testar e usar o Terraform com o Azure. A extensão fornece o suporte de comando do Terraform, visualização gráfica de recurso e integração do CloudShell com o Visual Studio Code.
 
@@ -46,17 +64,10 @@ Você aprenderá a:
 * Criar uma infraestrutura completa de máquina virtual do Linux no Azure usando o Terraform.
 
 
-Pré-requisitos
-
-### Instalar o HashiCorp Terraform
-Siga as instruções na página da Web Instalar o Terraform, que abrange:
-### Instalar o Node. js
-Para usar o Terraform no Cloud Shell, você precisará instalar o Node.js.
-### Instalar GraphViz
-Para usar a função visualizar do Terraform, será necessário instalar o GraphViz.
-### Instalar a extensão do Visual Studio Code do Azure Terraform
+4- Instalar a extensão do Visual Studio Code do Azure Terraform
 1. Inicie o Visual Studio Code.
 1. Selecione Extensões.
+
 ![alt text](https://user-images.githubusercontent.com/53921314/63644567-5693e980-c6c2-11e9-8f59-251ea9f27505.png)
 
 1. Use a caixa de texto Pesquisar extensões no Marketplace para procurar a extensão do Terraform do Azure:
