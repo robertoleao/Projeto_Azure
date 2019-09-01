@@ -6,12 +6,10 @@ Os arquivos de configuração com base em modelo do Terraform permitem definir, 
 * Implanta o mesmo modelo várias vezes para criar ambientes de desenvolvimento, teste e produção idênticos.
 * Reduz o custo de ambientes de desenvolvimento e teste ao criá-los sob demanda.
 
-## Instalação
-
 Pré-requisitos
 
 * Assinatura do Azure: Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar.
-* Instalar o Azure CLI no Windows
+* Instalar o Azure CLI no Windows ou Linux
 * Instalar o Visual Studio Code
 * Instalar o HashiCorp Terraform
 * Instalar a extensão do Visual Studio Code do Azure Terraform
@@ -24,7 +22,9 @@ Para usar o Terraform no Cloud Shell, você precisará instalar o Node.js.
 Para usar a função visualizar do Terraform, será necessário instalar o GraphViz.
 > O Graphviz é um pacote de ferramentas de código aberto iniciado pela AT & T Labs Research para desenhar gráficos especificados em scripts de linguagem DOT. Ele também fornece bibliotecas para aplicativos de software para usar as ferramentas. O Graphviz é um software livre licenciado sob a Licença Pública Eclipse.
 
-1- Instalar o Azure CLI no Windows
+## Instalação
+
+##### Instalar o Azure CLI no Windows
 
 CLI do Azure fornece acesso à CLI por meio do prompt de comando do Windows (CMD), PowerShell ou Bash.
 
@@ -47,12 +47,13 @@ Feito isso voce ja tem acesso ao seu azure pelo terminal tanto do windows quando
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-2- Instalar o Visual Studio Code
+##### Instalar o Visual Studio Code
 
 https://code.visualstudio.com/download
 
+--------------------------------------------------------------------------------------------------------------------------------
 
-3- Instalar e configurar o Terraform para provisionar VMs em infraestrutura do Azure
+##### Instalar e configurar o Terraform para provisionar VMs em infraestrutura do Azure
 
 A extensão do Terraform para Microsoft Azure Visual Studio Code foi projetada para aumentar a produtividade do desenvolvedor ao criar, testar e usar o Terraform com o Azure. A extensão fornece o suporte de comando do Terraform, visualização gráfica de recurso e integração do CloudShell com o Visual Studio Code.
 
@@ -64,7 +65,8 @@ Você aprenderá a:
 * Criar uma infraestrutura completa de máquina virtual do Linux no Azure usando o Terraform.
 
 
-4- Instalar a extensão do Visual Studio Code do Azure Terraform
+##### Instalar a extensão do Visual Studio Code do Azure Terraform
+
 1. Inicie o Visual Studio Code.
 1. Selecione Extensões.
 
@@ -78,7 +80,7 @@ Selecione Instalar.
 
 Depois de instalado agora é possível executar todos os comandos com suporte do Terraform em seu ambiente do Cloud Shell de dentro do Visual Studio Code.
 
-### Preparar o arquivo
+##### Preparar o arquivo
 
 1. No Visual Studio Code, selecione Arquivo > Novo Arquivo na barra de menus ou CTRL+N
 ![alt text](https://user-images.githubusercontent.com/53921314/63644537-91e1e880-c6c1-11e9-8085-def9fc32b0e5.png)
@@ -94,7 +96,7 @@ Na caixa de diálogo Salvar como, navegue até um local de sua escolha e, em seg
 
 Na caixa de diálogo Salvar Como, altere o nome padrão do arquivo para **main.tf**
 
-### Criar e,Implantar a infraestrutura
+##### Criar e,Implantar a infraestrutura
 
 Com o modelo do Terraform criado, a primeira etapa é inicializar o Terraform. Esta etapa garante que o Terraform tem todos os pré-requisitos para criar o modelo no Azure.
 
@@ -155,7 +157,7 @@ Note: You didn’t specify an “-out” parameter to save this plan, so when
 Plan: 7 to add, 0 to change, 0 to destroy.
 ```
 
-## Visualizar o plano
+##### Visualizar o plano
 
 Anteriormente neste tutorial, você instalou o GraphViz. O Terraform pode usar o GraphViz para gerar uma representação visual de uma configuração ou plano de execução. A extensão do Terraform do Visual Studio Code do Azure implementa esse recurso por meio do comando visualize.
 
@@ -168,8 +170,11 @@ Se tudo estiver correto, e você estiver pronto para criar a infraestrutura no A
 
 terraform apply
 
-Após a conclusão do Terraform, sua infraestrutura de VM estará pronta. Obtenha o endereço IP público da sua VM com az vm show:
+Após a conclusão do Terraform, sua infraestrutura de VM estará pronta. Obtenha o endereço IP público da sua VM com:
 
+```bash
+az vm show
+```
 
 
 
